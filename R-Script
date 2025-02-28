@@ -1,0 +1,77 @@
+# Loading the necessary My dataset as data
+
+Data_Water_quality = read.csv(choose.files()) 
+Data_Federal_states= read.csv(choose.files()) 
+Data_Biomass = read.csv(choose.files())
+
+# Reviewing  the loaded datasets 
+
+head(Data_Water_quality)
+head(Data_Federal_states)
+head(Data_Biomass)
+
+# Determination of Central tendency and dispersion for Water Quality
+
+mean_wQ <- mean(Data_Water_quality$Waterquality)
+
+mean_wQ
+
+
+median_WQ = median(Data_Water_quality$Waterquality)  # The median 
+
+median_WQ
+
+sd_WQ <- sd(Data_Water_quality$Waterquality)  # standard deviation 
+sd_quality
+
+iqr_quality <- IQR(Data_Water_quality$Waterquality)  # the interquartile range (IQR)
+iqr_quality
+
+# Boxplot for Water Quality
+
+boxplot(Data_Water_quality$Waterquality)
+
+# The distribution of Federal States
+
+table(Data_Federal_states$Federalstate)  # Count  
+
+# Barplot 
+barplot(table(Data_Federal_states$Federalstate))
+
+# central tendency and dispersion for Biomass
+mean_biomass <- mean(Data_Biomass$Biomass)  #  the mean biomass 
+mean_biomass
+median_biomass <- median(Data_Biomass$Biomass)  #  the median biomass 
+median_biomass
+
+# Calculating range, IQR, and standard deviation for Biomass
+range_biomass <- range(Data_Biomass$Biomass)  #the range
+range_biomass
+iqr_biomass <- IQR(Data_Biomass$Biomass)  # the interquartile range
+iqr_biomass
+sd_biomass <- sd(Data_Biomass$Biomass)  #  the standard deviation 
+sd_biomass
+
+# Boxplot for visualizing the distribution of Biomass
+boxplot(Data_Biomass$Biomass)
+
+# Histogram for visualizing the distribution of Biomass into 10 equal-sized classes
+hist(Data_Biomass$Biomass, breaks=10)
+
+# Cumulative distribution function plot for Biomass
+plot(ecdf(Data_Biomass$Biomass))
+
+#  95th percentile for Biomass
+percentile_95 = quantile(Data_Biomass$Biomass, 0.95) 
+percentile_95
+
+# the percentage of Biomass values below 48g
+
+Count_Biomass_x_48 = length(which(Data_Biomass$Biomass < 48))
+
+Count_Biomass_total = length(Data_Biomass$Biomass)
+
+Percentage_Biomass_x_48 = Count_Biomass_x_48/Count_Biomass_total*100
+
+Percentage_Biomass_x_48
+
